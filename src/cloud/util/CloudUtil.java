@@ -3,9 +3,6 @@ package cloud.util;
 import java.util.Random;
 import java.util.UUID;
 
-import cloud.NetworkCard;
-import cloud.VirtualMachine;
-
 public class CloudUtil {
     static int macElements = 6;
 
@@ -39,29 +36,5 @@ public class CloudUtil {
 
 	    // Regresar la dirección MAC en mayúsculas
 	    return mac.toString().toUpperCase();
-	}
-	public static void printNICInfo(NetworkCard nic){
-		// Escribe tu código {
-			System.out.println("Network Card");
-			System.out.println("macAddress= " + nic.macAddress);
-			System.out.println("label = " + nic.label);
-			System.out.println("speedMb = " + nic.speedMb);
-			System.out.println("network = " + nic.macAddress);
-			System.out.println("");
-			
-		// }
-	}
-	
-	public static void printVMInfo(VirtualMachine vm){
-		// Escribe tu código {
-		System.out.println("Virtual Machine");
-		System.out.println("id = " + vm.id);
-		System.out.println("name = " + vm.name);
-		System.out.println("guestOs = " + vm.guestOS);
-		System.out.println("cpuCount = " + vm.cpuCount);
-		System.out.println("memoryGB = "+ vm.memoryGB);
-		System.out.println("nics = "+ vm.nics);
-		System.out.println("");
-			// }
 	}
 }
