@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="/Users/luisa/myRepo/Java101/src/lib/log4j-1.2-api-2.9.1.jar"/>
 	<classpathentry kind="lib" path="/Users/luisa/myRepo/Java101/src/lib/log4j-api-2.9.1.jar"/>
 	<classpathentry kind="lib" path="/Users/luisa/myRepo/Java101/src/lib/log4j-iostreams-2.9.1.jar"/>
+	<classpathentry kind="lib" path="/Users/luisa/myRepo/Java101/src/lib/sqlite-jdbc-3.20.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

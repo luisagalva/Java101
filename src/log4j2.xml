@@ -11,7 +11,7 @@
 		</File>
 	</Appenders>
 	<Loggers>
-		<Logger name="io.AAdmin" level="info">
+		<Logger name="db.CustomerAdmin" level="info">
 			
 		</Logger>
 		<Root level="error"><AppenderRef ref="Logfile" /></Root>
