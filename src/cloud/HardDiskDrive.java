@@ -1,56 +1,63 @@
 package Cloud;
-import Cloud.Exceptions.*;
 
-public class HardDiskDrive {
-	String id;						// Identificador único
-	long capacityGB;				// Capacidad en GB
-	int unitNumber;                 // Número de unidad
-	String label;	                // Etiqueta
+public class HardDiskDrive extends VirtualDevice {
 	
-	/* 
-	 * HardDiskDrive[1]
-	 * Crear constructor y validar lo siguiente:
-	 * - capacityGB debe ser mayor a 0 y múltiplo de 40
-	 * HardDiskDrive[2]
-	 * Reemplazar concatenación de strings 
-	 * usando "+" por StringBuilder en Constructores 
-	 */
-	public HardDiskDrive(long capacityGB, int unitNumber){
-		this.unitNumber = unitNumber;	
-		// Escribe tu código {
-		StringBuilder sb = new StringBuilder().append("Hard Disk ").append(unitNumber);
-		this.label = sb.toString();
+	
+	private double capacityGB;				// Capacidad en GB
+	public final String label_prefix = "Hard Disk Drive";	                // Etiqueta
+	
+	
+	
+public HardDiskDrive( int unitNumber){
 		
-			if(unitNumber>=0 || unitNumber%40!=0){
-			
-			System.err.println("Unit Number debe ser mayor a 0 y multiplo de 40");
+		super(unitNumber);
+		
+		StringBuilder sb = new StringBuilder().append(this.label_prefix).append(unitNumber);
+		Description description = new Description(sb.toString(),"");
+		this.setDescription(description);
 		}
-			try {
-			if(capacityGB<1){
+	
+	public HardDiskDrive( int unitNumber, int nulo){
+		
+		super(unitNumber);
+		
+		StringBuilder sb = new StringBuilder().append(this.label_prefix).append(unitNumber);
+		Description description = new Description(sb.toString(),"");
+		this.setDescription(description);
+		}
+
+	
+	public HardDiskDrive(double capacityGB, int unitNumber, int nulo){
+		
+		super(unitNumber);
+		
+		// Escribe tu código {
+		StringBuilder sb = new StringBuilder().append(this.label_prefix).append(unitNumber);
+		Description description = new Description(sb.toString(),"");
+		this.setDescription(description);
+		
+
+		
+			if(capacityGB<0 || capacityGB%40!=0){
 				
-					throw new CloudGenericException("CapacityGB debe ser mayor a 1GB");
-				} 
-			}catch (CloudGenericException e) {
-				// TODO Auto-generated catch block
-				System.out.println("Error: "+e.toString());
+				System.err.println("Disco debe ser mayor a 0 y múltiplo de 40");
 			}
+			
 		this.capacityGB = capacityGB;
 		// }
 	}
 	
-	/*
-	 * HardDiskDrive[3]
-	 * Sobrecargar el método 
-	 * java.lang.Object.toString() para mostrar la 
-	 * representación en String de HardDiskDrive
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	public void setCapacityGB(double capacityGB){
+		this.capacityGB = capacityGB;
+	}
+	
+	
+	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		// Escribe tu código {
-		sb.append("Etiqueta : ").append(label).append("\n");
-		sb.append("Unidad : ").append(unitNumber).append("\n");
+		sb.append("Etiqueta : ").append(this.getDescription().getLabel()).append("\n");
+		sb.append("Unidad : ").append(this.getUnitNumber()).append("\n");
 		sb.append("Capacidad : ").append(capacityGB).append("GB\n");
 		sb.append("\n");
 		// }

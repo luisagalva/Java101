@@ -3,14 +3,13 @@ package Cloud;
 
 import Cloud.Util.CloudUtil;
 import Cloud.Exceptions.*;
+import Cloud.VirtualDevice;
 
-public class NetworkCard {
-	public static final int MAX_SPEED_MB = 100;            
-	public final String macAddress;             
-	public final int unitNumber;  
-	public final String label;
-	public int speedMb = MAX_SPEED_MB;
-	public String network;                                         
+public class NetworkCard extends VirtualDevice{
+	
+	public final String macAddress;  
+	public final String label_prefix = "Network Card ";
+	private String network;                                         
 
 	/*
 	 * NetworkCard[1]
@@ -18,7 +17,12 @@ public class NetworkCard {
 	 * usando "+" por StringBuilder en 
 	 * Constructores 
 	 */
-	NetworkCard(int unitNumber){
+	public NetworkCard(int unitNumber){
+		
+		super(unitNumber);
+		Description description = new Description(this.label_prefix + unitNumber,"");
+		this.setDescription(description);
+		
 		if(unitNumber<1){
 			try {
 				throw new CloudGenericException("Unit number debe ser mayor a 0");
@@ -28,16 +32,16 @@ public class NetworkCard {
 			}
 		}
 		
-		this.unitNumber = unitNumber;
-		// Escribe tu código {
-		StringBuilder sb = new StringBuilder().append("Network Card").append(unitNumber);
-		this.label = sb.toString();
-		// }
+	
 		this.macAddress = CloudUtil.getMACAddress();
 	}
 	
-	NetworkCard(String network, int unitNumber){
-		this.network = network;
+	NetworkCard(int unitNumber, int nulo){
+		
+		super(unitNumber);
+		Description description = new Description(this.label_prefix + unitNumber,"");
+		this.setDescription(description);
+		
 		if(unitNumber<1){
 			try {
 				throw new CloudGenericException("Unit number debe ser mayor a 0");
@@ -46,15 +50,16 @@ public class NetworkCard {
 				e.printStackTrace();
 			}
 		}
-		this.unitNumber = unitNumber;
-		// Escribe tu código {
-		StringBuilder sb = new StringBuilder().append("Network Card").append(unitNumber);
-		this.label = sb.toString();
-		// }
+		
 		this.macAddress = CloudUtil.getMACAddress();
 	}
-	NetworkCard(String network, int unitNumber, int speedMb){
-		this.network = network;
+	
+   NetworkCard(int unitNumber, int nulo, String network ){
+		
+		super(unitNumber);
+		Description description = new Description(this.label_prefix + nulo,"");
+		this.setDescription(description);
+		
 		if(unitNumber<1){
 			try {
 				throw new CloudGenericException("Unit number debe ser mayor a 0");
@@ -63,12 +68,8 @@ public class NetworkCard {
 				e.printStackTrace();
 			}
 		}
-		this.unitNumber = unitNumber;
-		this.speedMb = speedMb;
-		// Escribe tu código {
-		StringBuilder sb = new StringBuilder().append("Network Card").append(unitNumber);
-		this.label = sb.toString();
-		// }
+		
+		this.network = network;
 		this.macAddress = CloudUtil.getMACAddress();
 	}
 	
@@ -83,11 +84,10 @@ public class NetworkCard {
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		// Escribe tu código {
-		sb.append("Etiqueta : ").append(label).append("\n");
-		sb.append("Unidad : ").append(unitNumber).append("\n");
+		sb.append("Etiqueta : ").append(this.getDescription().getLabel()).append("\n");
+		sb.append("Unidad : ").append(this.getUnitNumber()).append("\n");
 		sb.append("MAC : ").append(macAddress).append("\n");
 		sb.append("Network : ").append(network).append("\n");
-		sb.append("Velocidad : ").append(MAX_SPEED_MB).append("Mbps\n");
 		sb.append("\n");
 		// }
 		return sb.toString();
