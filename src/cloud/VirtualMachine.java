@@ -1,11 +1,9 @@
 package Cloud;
 
 import java.util.HashMap;
-
+import java.lang.*;
 
 import Cloud.Util.CloudUtil;
-import Cloud.Exceptions.CloudGenericException;
-import java.io.IOException;
 
 public class VirtualMachine {
 	final String id;         // Identificador único
@@ -39,34 +37,21 @@ public class VirtualMachine {
 	 */
 	VirtualMachine(int cpuCount, long memoryGB, String guestOS){
 		// Escribe tu código {
-		try {
-				if(cpuCount<=0){
-			
-							throw new CloudGenericException("Cpu count debe ser mayor a 0");
-						}
-				else{
-					
-					this.cpuCount = cpuCount;
-					}
-				} catch (CloudGenericException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			
+		if(cpuCount<=0){
+			this.cpuCount = 1;
+			System.err.println("Cpu count debe ser mayor a 0");
 		}
-		
-		try{
-		if(memoryGB<1){
-
-			throw new CloudGenericException("MemoryGB debe ser mayor 1");
-			}
 		else{
-			this.memoryGB = memoryGB;
-				}
-		}catch (CloudGenericException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		
+			
+			this.cpuCount = cpuCount;
 		}
+		
+		if(memoryGB>=1024 && memoryGB%1024 == 0){
+			this.memoryGB = memoryGB;}
+		else{
+			
+			this.memoryGB = 1024;
+			System.err.println("MemoryGB debe ser mayor a 1024 o un múltiplo de 1024");	}
 		
 		if(guestOS.length()>=5){
 			this.guestOS = guestOS;
@@ -76,40 +61,34 @@ public class VirtualMachine {
 			System.err.println("guestOS debe ser mayor a 5 caracteres");
 		}
 		
-		
+		// }
 		this.id = CloudUtil.getUUID();
 	}
 	
-	VirtualMachine(int cpuCount, long memoryGB, String name, String guestOS) {
-		try {
-			if(cpuCount>0){
-				this.cpuCount = cpuCount;
-					}
-			else{
-				
-				throw new CloudGenericException("Cpu debe ser mayor a 0");
-				}
-			} catch (CloudGenericException e) {
-			// TODO Auto-generated catch block
-				System.out.println("Error: "+e.toString());
-	      }
-	
-	
-		try{
-			if(memoryGB<1){
-				
-				throw new CloudGenericException("Memoria debe ser mayor o igual a 1024");
-				}
+	VirtualMachine(int cpuCount, long memoryGB, String name, String guestOS){
+		// Escribe tu código {
+		if(cpuCount<=0){
+			this.cpuCount = 1;
+			System.err.println("Cpu count debe ser mayor a 0");
+		}
+		else{
+			this.cpuCount = cpuCount;
+		}
+		
+		if(memoryGB>=1024 && memoryGB%1024 == 0){
+			this.memoryGB = memoryGB;}
+		else{
 			
-				this.memoryGB = memoryGB;
-	}catch (CloudGenericException e) {
-		// TODO Auto-generated catch block
-	
-		System.out.println("Error: "+e.toString());
+			this.memoryGB = 1024;
+			System.err.println("MemoryGB debe ser mayor a 1024 o un múltiplo de 1024");	}
 		
-	}
-		this.guestOS = guestOS;
-		
+		if(guestOS.length()>=5){
+			this.guestOS = guestOS;
+		}
+		else{
+			this.guestOS = guestOS;
+			System.err.println("guestOS debe ser mayor a 5 caracteres");
+		}
 		if(name.length()>=5){
 			this.name = name;
 		}

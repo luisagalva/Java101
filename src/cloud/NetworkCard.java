@@ -1,8 +1,7 @@
 package Cloud;
 
-
 import Cloud.Util.CloudUtil;
-import Cloud.Exceptions.*;
+import java.lang.*;
 
 public class NetworkCard {
 	public static final int MAX_SPEED_MB = 100;            
@@ -19,15 +18,6 @@ public class NetworkCard {
 	 * Constructores 
 	 */
 	NetworkCard(int unitNumber){
-		if(unitNumber<1){
-			try {
-				throw new CloudGenericException("Unit number debe ser mayor a 0");
-			} catch (CloudGenericException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
 		this.unitNumber = unitNumber;
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder().append("Network Card").append(unitNumber);
@@ -38,14 +28,6 @@ public class NetworkCard {
 	
 	NetworkCard(String network, int unitNumber){
 		this.network = network;
-		if(unitNumber<1){
-			try {
-				throw new CloudGenericException("Unit number debe ser mayor a 0");
-			} catch (CloudGenericException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 		this.unitNumber = unitNumber;
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder().append("Network Card").append(unitNumber);
@@ -55,14 +37,6 @@ public class NetworkCard {
 	}
 	NetworkCard(String network, int unitNumber, int speedMb){
 		this.network = network;
-		if(unitNumber<1){
-			try {
-				throw new CloudGenericException("Unit number debe ser mayor a 0");
-			} catch (CloudGenericException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 		this.unitNumber = unitNumber;
 		this.speedMb = speedMb;
 		// Escribe tu código {

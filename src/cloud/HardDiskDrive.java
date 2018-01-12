@@ -1,5 +1,4 @@
 package Cloud;
-import Cloud.Exceptions.*;
 
 public class HardDiskDrive {
 	String id;						// Identificador único
@@ -20,20 +19,11 @@ public class HardDiskDrive {
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder().append("Hard Disk ").append(unitNumber);
 		this.label = sb.toString();
-		
-			if(unitNumber>=0 || unitNumber%40!=0){
+		if(unitNumber>=0 && unitNumber%40!=0){
 			
 			System.err.println("Unit Number debe ser mayor a 0 y multiplo de 40");
 		}
-			try {
-			if(capacityGB<1){
-				
-					throw new CloudGenericException("CapacityGB debe ser mayor a 1GB");
-				} 
-			}catch (CloudGenericException e) {
-				// TODO Auto-generated catch block
-				System.out.println("Error: "+e.toString());
-			}
+		
 		this.capacityGB = capacityGB;
 		// }
 	}
