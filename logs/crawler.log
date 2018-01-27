@@ -1,0 +1,14 @@
+2017-11-20 22:22:49.453 [main] INFO  web.Crawler - Starting to crawl.
+2017-11-20 22:22:51.521 [main] INFO  web.Crawler - Artículos encontrados: 45
+2017-11-20 22:22:51.521 [main] INFO  web.Crawler - Subcrawling //try.jsoup.org/~LGB7rk_atM2roavV0d-czMt3J_g
+2017-11-20 22:22:51.522 [main] WARN  web.Crawler - java.lang.IllegalArgumentException: Malformed URL: //try.jsoup.org/~LGB7rk_atM2roavV0d-czMt3J_g
+2017-11-20 22:22:51.522 [main] INFO  web.Crawler - Subcrawling //try.jsoup.org/
+2017-11-20 22:22:51.522 [main] WARN  web.Crawler - java.lang.IllegalArgumentException: Malformed URL: //try.jsoup.org/
+2017-11-21 13:09:28.489 [main] INFO  web.Crawler - Starting to crawl.
+2017-11-21 13:09:30.367 [main] INFO  web.Crawler - Artículos encontrados: 7
+2017-11-24 12:58:58.284 [main] INFO  web.Crawler - Starting to crawl.
+2017-11-24 12:59:02.903 [main] INFO  web.Crawler - Artículos encontrados: 45
+2017-11-24 12:59:02.903 [main] INFO  web.Crawler - Subcrawling //try.jsoup.org/~LGB7rk_atM2roavV0d-czMt3J_g
+2017-11-24 12:59:02.912 [main] WARN  web.Crawler - java.lang.IllegalArgumentException: Malformed URL: //try.jsoup.org/~LGB7rk_atM2roavV0d-czMt3J_g
+2017-11-24 12:59:02.912 [main] INFO  web.Crawler - Subcrawling //try.jsoup.org/
+2017-11-24 12:59:02.912 [main] WARN  web.Crawler - java.lang.IllegalArgumentException: Malformed URL: //try.jsoup.org/
